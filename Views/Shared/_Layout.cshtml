@@ -80,9 +80,23 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-secondary my-2 my-sm-0" asp-area="" asp-controller="Home" asp-action="LogOut">
-                                Log Out
-                             </a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a class="btn btn-outline-secondary my-2 my-sm-0" asp-area="" asp-controller="Home" asp-action="LogOut">
+                                    Log Out
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-secondary my-2 my-sm-0 m-2" asp-area="" asp-controller="Access" asp-action="Login">
+                                    Log In
+                                </a>
+                                <a class="btn btn-outline-success my-2 my-sm-0" asp-area="" asp-controller="Access" asp-action="SignUp">
+                                    Sign Up
+                                </a>
+                                
+                            }
+
                         </li>
 
          @*                

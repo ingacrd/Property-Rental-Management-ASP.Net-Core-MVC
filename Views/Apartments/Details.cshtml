@@ -168,9 +168,14 @@
             @* ----------------------- Messages Content -------------------------*@
 
             <div class="tab-pane fade" id="messages" role="tabpanel">
-            
-                <section style="background-color: #eee;">
-                    <div class="container py-5 overflow-auto" style="height: 300px;">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <p class="text-danger">To send a message, please log in or create an account.</p>
+                }
+                else
+                {
+                    <section style="background-color: #eee;">
+                        <div class="container py-5 overflow-auto" style="height: 300px;">
                             <ul class="list-unstyled">
                                 @foreach (var message in ViewBag.Messages)
                                 {
@@ -179,7 +184,7 @@
                                     if (msj.SenderUserId == (int)ViewData["UserId"])
                                     {
                                         <li class="d-flex justify-content-between mb-4">
-                                        <img src="@Url.Content($"~/images/users/{senderDetails.Photo}")" alt="avatar"
+                                            <img src="@Url.Content($"~/images/users/{senderDetails.Photo}")" alt="avatar"
                                                  class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
                                             <div class="card w-100">
                                                 <div class="card-header d-flex justify-content-between p-3">
@@ -190,7 +195,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <p class="mb-0">
-                                                         @msj.Body 
+                                                        @msj.Body
                                                     </p>
                                                 </div>
                                             </div>
@@ -212,58 +217,60 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                        <img src="@Url.Content($"~/images/users/{senderDetails.Photo}")" alt="avatar"
+                                            <img src="@Url.Content($"~/images/users/{senderDetails.Photo}")" alt="avatar"
                                                  class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
                                         </li>
                                     }
-                                }           
+                                }
 
-                               
+
                             </ul>
-                      
 
-                    </div>
-                    @using (Html.BeginForm("Create", "Mensajes", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
 
-                        <div class="container py-5">
-                            <div class="bg-white mb-3">
-                                <div data-mdb-input-init class="form-outline">
-                                    <textarea name="Body" class="form-control" id="textAreaExample2" rows="4" placeholder="write your message"></textarea>
-                                </div>
-                            </div>
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
-                                {
-                                    <div class="mb-3">
-                                        <label for="userList" class="form-label">Select User:</label>
-                                        <select name="ReceiverUserId" id="userList" class="form-select">
-                                            @foreach (var tenant in @ViewBag.AllTenants)
-                                            {
-                                                <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
-                                            }
-                                        </select>
+                        </div>
+                        @using (Html.BeginForm("Create", "Mensajes", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="container py-5">
+                                <div class="bg-white mb-3">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <textarea name="Body" class="form-control" id="textAreaExample2" rows="4" placeholder="write your message"></textarea>
                                     </div>
-                                }
-                                else
+                                </div>
+                                @if (User.Identity.IsAuthenticated)
                                 {
-                                    <input type="hidden" name="ReceiverUserId" value="@ViewData["ManagerUserId"]" />
+                                    if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                    {
+                                        <div class="mb-3">
+                                            <label for="userList" class="form-label">Select User:</label>
+                                            <select name="ReceiverUserId" id="userList" class="form-select">
+                                                @foreach (var tenant in @ViewBag.AllTenants)
+                                                {
+                                                    <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" name="ReceiverUserId" value="@ViewData["ManagerUserId"]" />
+                                    }
                                 }
-                            }
 
-                            <input type="hidden" name="SenderUserId" value="@ViewData["UserId"]" />
-                            
-                            <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
-                            <input type="hidden" name="Subject" value="Message from apartment" />
-                 @*            <input type="hidden" name="MessageDateTime" value="@DateTime.Now" /> *@
-                            <input type="hidden" name="StatusId" value="11" />
-                            <button type="submit" class="btn btn-info btn-rounded float-end">Send</button>
-                    </div>
-                    }
-                </section>
+                                <input type="hidden" name="SenderUserId" value="@ViewData["UserId"]" />
 
+                                <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
+                                <input type="hidden" name="Subject" value="Message from apartment" />
+                                @*            <input type="hidden" name="MessageDateTime" value="@DateTime.Now" /> *@
+                                <input type="hidden" name="StatusId" value="11" />
+                                <button type="submit" class="btn btn-info btn-rounded float-end">Send</button>
+                            </div>
+                        }
+                    </section>
+
+                }
+                
             </div>
 
             @* ----------------------- Appointments Content -------------------------*@
@@ -274,45 +281,50 @@
             ViewBag.Photos = photos; 
             ViewBag.Appointments = appointments;*@
             <div class="tab-pane fade " id="appointments" role="tabpanel">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <p class="text-danger">To make an appointment, please log in or create an account.</p>
+                }
+                else
+                {
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="table-primary">
+                                <th scope="col">Date</th>
+                                <th scope="col">Hour</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Status</th>
+                                <th></th>
+                                @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                {
+                                    <th scope="col">TenantId</th>
+                                }
 
-                <table class="table table-hover">
-                    <thead>
-                        <tr class="table-primary">
-                            <th scope="col">Date</th>
-                            <th scope="col">Hour</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Status</th>
-                            <th></th>
-                            @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var appointment in ViewBag.Appointments)
                             {
-                                <th scope="col">TenantId</th>
-                            }
-                           
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var appointment in ViewBag.Appointments)
-                        {
-                            <tr class="table-active">
-                                <td>@appointment.AppointmentDateTime.ToString("yyyy-MM-dd")</td>
-                                <td>@appointment.AppointmentDateTime.ToString("HH:mm")</td>
-                                <td>@appointment.Description</td>
-                                
-                                <td>
-                                    @if (appointment.StatusId == 5)
-                                    {
-                                        <text>Confirmed</text>
-                                    }
-                                    else if (appointment.StatusId == 6)
-                                    {
-                                        <text>Cancel</text>
-                                    }
-                                    else 
-                                    {
-                                        <text>Pending</text>
-                                    }
-                                    
-                                </td>
+                                <tr class="table-active">
+                                    <td>@appointment.AppointmentDateTime.ToString("yyyy-MM-dd")</td>
+                                    <td>@appointment.AppointmentDateTime.ToString("HH:mm")</td>
+                                    <td>@appointment.Description</td>
+
+                                    <td>
+                                        @if (appointment.StatusId == 5)
+                                        {
+                                            <text>Confirmed</text>
+                                        }
+                                        else if (appointment.StatusId == 6)
+                                        {
+                                            <text>Cancel</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Pending</text>
+                                        }
+
+                                    </td>
                                     <td>
                                         <div class="row">
                                             <div class="col">
@@ -321,70 +333,72 @@
                                             <div class="col">
                                                 <a asp-controller="Appointments1" asp-action="CancelUpdate" asp-route-id="@appointment.AppointmentId" class="text-decoration-none text-danger"><i class="fa-solid fa-rectangle-xmark" data-bs-toggle="tooltip" data-bs-placement="top" title="Cancel"></i></a>
                                             </div>
-                                        @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
-                                        {
-                                            <div class="col">
-                                                <a asp-controller="Appointments1" asp-action="Delete" asp-route-id="@appointment.AppointmentId" class="text-decoration-none text-primary"><i class="fa-solid fa-trash-can" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"></i></a>
-                                            </div>
-                                        }
+                                            @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                            {
+                                                <div class="col">
+                                                    <a asp-controller="Appointments1" asp-action="Delete" asp-route-id="@appointment.AppointmentId" class="text-decoration-none text-primary"><i class="fa-solid fa-trash-can" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"></i></a>
+                                                </div>
+                                            }
                                         </div>
                                     </td>
-                                @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
-                                {
-                                    <td scope="col">@appointment.TenantId</td>
-                                }
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-
-                <h4>Create New Appointment</h4>
-                <hr />
-              
-                <div class="row">
-                    <div class="col-3">
-                        <form asp-controller="Appointments1" asp-action="Create" method="post">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
-                                {
-                                    <label for="userList" class="form-label">Select Tenant:</label>
-                                    <select name="TenantId" id="userList" class="form-select">
-                                         @foreach (var tenant in @ViewBag.AllTenants)
-                                         {
-                                            <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
-                                         }
-                                    </select>
-                                }
-                                else
-                                {
-                                    <input type="hidden" name="TenantId" value="@ViewData["TenantId"]" />
-                                }
+                                    @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                    {
+                                        <td scope="col">@appointment.TenantId</td>
+                                    }
+                                </tr>
                             }
-                            <input type="hidden" name="TenantId" value="@ViewData["TenantId"]" />
-                            <input type="hidden" name="ManagerId" value="@ViewData["ManagerId"]" />
-                            <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
+                        </tbody>
+                    </table>
 
-                            <div class="form-group">
-                                <label for="AppointmentDateTime" class="control-label">Appointment Date and Time</label>
-                                <input type="datetime-local" name="AppointmentDateTime" class="form-control" />
-                            </div>
+                    <h4>Create New Appointment</h4>
+                    <hr />
 
-                            <div class="form-group">
-                                <label for="Description" class="control-label">Description</label>
-                                <input type="text" name="Description" class="form-control" />
-                            </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <form asp-controller="Appointments1" asp-action="Create" method="post">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                    {
+                                        <label for="userList" class="form-label">Select Tenant:</label>
+                                        <select name="TenantId" id="userList" class="form-select">
+                                            @foreach (var tenant in @ViewBag.AllTenants)
+                                            {
+                                                <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
+                                            }
+                                        </select>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" name="TenantId" value="@ViewData["TenantId"]" />
+                                    }
+                                }
+                                <input type="hidden" name="TenantId" value="@ViewData["TenantId"]" />
+                                <input type="hidden" name="ManagerId" value="@ViewData["ManagerId"]" />
+                                <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
 
-                            <input type="hidden" name="StatusId" value="4" />
+                                <div class="form-group">
+                                    <label for="AppointmentDateTime" class="control-label">Appointment Date and Time</label>
+                                    <input type="datetime-local" name="AppointmentDateTime" class="form-control" />
+                                </div>
 
-                            <div class="form-group">
-                                <input type="submit" value="Create" class="btn btn-primary" />
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <label for="Description" class="control-label">Description</label>
+                                    <input type="text" name="Description" class="form-control" />
+                                </div>
 
+                                <input type="hidden" name="StatusId" value="4" />
+
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
-                </div>
 
+                }
+                
 
 
             </div>

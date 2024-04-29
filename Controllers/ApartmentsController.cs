@@ -11,7 +11,7 @@ using PropertyRentals.Models;
 
 namespace PropertyRentals.Controllers
 {
-    [Authorize] //Only if authorization can enter
+    //[Authorize] //Only if authorization can enter
     public class ApartmentsController : Controller
     {
         private readonly PropertyRentalDbContext _context;
@@ -117,119 +117,125 @@ namespace PropertyRentals.Controllers
 
             // Access the ManagerUser from the property
             var managerUser = property?.Manager;
-           // var managerUserJson = Newtonsoft.Json.JsonConvert.SerializeObject(managerUser);
+           
             ViewData["ManagerUserId"] = managerUser.UserId;
             ViewData["ManagerId"] = managerUser.ManagerId;
-            //ViewData["ManagerUser"] = managerUser;
 
-            // find the user
-            ClaimsPrincipal claimUser = HttpContext.User;
-            var nameIdentifierClaim = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
-            string nameIdentifierValue = nameIdentifierClaim.Value;
-
-            var usr = (from u in _context.Users
-                       where u.Username == nameIdentifierValue
-                       select u).FirstOrDefault();
-
-            ViewData["UserId"] = usr.UserId;
-            //find all Messages on The Apartment for the user
-
-            var messageDetails = await (from m in _context.Messages
-                                        where (m.SenderUserId == usr.UserId || m.ReceiverUserId == usr.UserId)&& m.ApartmentId == apartment.ApartmentId
-                                        join u in _context.Users on m.SenderUserId equals u.UserId
-                                        select new
-                                        {
-                                            Message = m,
-                                            SenderDetails = u
-                                        }).ToListAsync();
-
-            //update the message not readed to readed
-
-            var messagesNotRead = from m in _context.Messages
-                                  where (m.ReceiverUserId == usr.UserId && m.StatusId == 11) && m.ApartmentId == apartment.ApartmentId
-                                  select m;
-            foreach (var message in messagesNotRead)
+            if (User.Identity.IsAuthenticated)
             {
-                message.StatusId = 10; // mark as read
-            }
-            _context.SaveChanges();
+                // find the user
+                ClaimsPrincipal claimUser = HttpContext.User;
+                var nameIdentifierClaim = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+                string nameIdentifierValue = nameIdentifierClaim.Value;
 
+                var usr = (from u in _context.Users
+                           where u.Username == nameIdentifierValue
+                           select u).FirstOrDefault();
 
-            if (claimUser.IsInRole("Tenant"))
-            {
-                
-                var appointments = await (from a in _context.Appointments
-                                          join t in _context.Tenants on a.TenantId equals t.TenantId
-                                          where t.UserId == usr.UserId && a.ApartmentId == apartment.ApartmentId
-                                          select a).ToListAsync();
-                ViewBag.Appointments = appointments;
-                var tenant = (from t in _context.Tenants
-                              where t.UserId == usr.UserId
-                              select t).FirstOrDefault();
-                ViewData["TenantId"] = tenant.TenantId;
+                ViewData["UserId"] = usr.UserId;
+                //find all Messages on The Apartment for the user
 
-            } 
-            else if (claimUser.IsInRole("Manager") || claimUser.IsInRole("Owner"))
-            {
+                var messageDetails = await (from m in _context.Messages
+                                            where (m.SenderUserId == usr.UserId || m.ReceiverUserId == usr.UserId) && m.ApartmentId == apartment.ApartmentId
+                                            join u in _context.Users on m.SenderUserId equals u.UserId
+                                            select new
+                                            {
+                                                Message = m,
+                                                SenderDetails = u
+                                            }).ToListAsync();
 
-                var alltenants = await (from u in _context.Users
-                                        where u.UserType == "Tenant"
-                                        select u).ToListAsync();
-                ViewBag.AllTenants = alltenants;
+               
+                ViewBag.Messages = messageDetails;
 
-               //StatusType sType = new StatusType();
-                var eventsDetails = await (from e in _context.Events
-                                    where e.ApartmentId == apartment.ApartmentId
-                                    select new
-                                    {
-                                        Events = e,
-                                        statusType = (StatusType)e.StatusId
-                                    }).ToListAsync();
-                
-                ViewBag.EventDetails = eventsDetails;
-
-                var rentalDetails = await (from r in _context.Rentals
-                                           where r.ApartmentId == apartment.ApartmentId
-                                           select r).ToListAsync();
-                
-                ViewBag.Rentals = rentalDetails;
-
-                var apartmentRented = (from a in _context.Rentals
-                                       where a.ApartmentId == apartment.ApartmentId && a.EndContractDate <= DateOnly.FromDateTime(DateTime.Now)
-                                       select a).FirstOrDefault();
-                if (apartmentRented != null)
+                //update the message not readed to readed
+                var messagesNotRead = from m in _context.Messages
+                                      where (m.ReceiverUserId == usr.UserId && m.StatusId == 11) && m.ApartmentId == apartment.ApartmentId
+                                      select m;
+                foreach (var message in messagesNotRead)
                 {
-                    ViewData["RentalApartment"] = "false";
+                    message.StatusId = 10; // mark as read
                 }
-                else ViewData["RentalApartment"] = "true";
+                _context.SaveChanges();
 
-                if (claimUser.IsInRole("Manager"))
+                if (claimUser.IsInRole("Tenant"))
                 {
+
                     var appointments = await (from a in _context.Appointments
-                                              join m in _context.Managers on a.ManagerId equals m.ManagerId
-                                              where m.UserId == usr.UserId && a.ApartmentId == apartment.ApartmentId
+                                              join t in _context.Tenants on a.TenantId equals t.TenantId
+                                              where t.UserId == usr.UserId && a.ApartmentId == apartment.ApartmentId
                                               select a).ToListAsync();
                     ViewBag.Appointments = appointments;
+                    var tenant = (from t in _context.Tenants
+                                  where t.UserId == usr.UserId
+                                  select t).FirstOrDefault();
+                    ViewData["TenantId"] = tenant.TenantId;
 
                 }
-                else
+                else if (claimUser.IsInRole("Manager") || claimUser.IsInRole("Owner"))
                 {
-                    var appointments = await (from appointment in _context.Appointments
-                                              join a in _context.Apartments on appointment.ApartmentId equals a.ApartmentId into aa
 
-                                              from app in aa.DefaultIfEmpty()
-                                              join p in _context.Properties on apartment.PropertyCode equals p.PropertyCode into aap
+                    var alltenants = await (from u in _context.Users
+                                            where u.UserType == "Tenant"
+                                            select u).ToListAsync();
+                    ViewBag.AllTenants = alltenants;
 
-                                              from prop in aap.DefaultIfEmpty()
-                                              where prop.ManagerId == managerUser.ManagerId && appointment.ApartmentId == apartment.ApartmentId
-                                              select appointment).ToListAsync();
+                    //StatusType sType = new StatusType();
+                    var eventsDetails = await (from e in _context.Events
+                                               where e.ApartmentId == apartment.ApartmentId
+                                               select new
+                                               {
+                                                   Events = e,
+                                                   statusType = (StatusType)e.StatusId
+                                               }).ToListAsync();
 
-                    ViewBag.Appointments = appointments;
+                    ViewBag.EventDetails = eventsDetails;
 
+                    var rentalDetails = await (from r in _context.Rentals
+                                               where r.ApartmentId == apartment.ApartmentId
+                                               select r).ToListAsync();
+
+                    ViewBag.Rentals = rentalDetails;
+
+                    var apartmentRented = (from a in _context.Rentals
+                                           where a.ApartmentId == apartment.ApartmentId && a.EndContractDate <= DateOnly.FromDateTime(DateTime.Now)
+                                           select a).FirstOrDefault();
+                    if (apartmentRented != null)
+                    {
+                        ViewData["RentalApartment"] = "false";
+                    }
+                    else ViewData["RentalApartment"] = "true";
+
+                    if (claimUser.IsInRole("Manager"))
+                    {
+                        var appointments = await (from a in _context.Appointments
+                                                  join m in _context.Managers on a.ManagerId equals m.ManagerId
+                                                  where m.UserId == usr.UserId && a.ApartmentId == apartment.ApartmentId
+                                                  select a).ToListAsync();
+                        ViewBag.Appointments = appointments;
+
+                    }
+                    else
+                    {
+                        var appointments = await (from appointment in _context.Appointments
+                                                  join a in _context.Apartments on appointment.ApartmentId equals a.ApartmentId into aa
+
+                                                  from app in aa.DefaultIfEmpty()
+                                                  join p in _context.Properties on apartment.PropertyCode equals p.PropertyCode into aap
+
+                                                  from prop in aap.DefaultIfEmpty()
+                                                  where prop.ManagerId == managerUser.ManagerId && appointment.ApartmentId == apartment.ApartmentId
+                                                  select appointment).ToListAsync();
+
+                        ViewBag.Appointments = appointments;
+
+                    }
                 }
+
+
             }
 
-            ViewBag.Messages = messageDetails;
+
+            
             ViewData["Property"] = property;
             ViewData["ManagerUser"] = managerUser;
             ViewBag.Photos = photos; 
