@@ -170,10 +170,13 @@
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 @foreach (var item in Model)
                 {
-                    @if (User.Identity.IsAuthenticated)
+                    @if (!User.Identity.IsAuthenticated && item.Apartment.StatusId == 1 ||
+                   User.Identity.IsAuthenticated && (User.FindFirst(ClaimTypes.Role)?.Value == "Tenant" && item.Apartment.StatusId == 1||
+                   User.FindFirst(ClaimTypes.Role)?.Value == "Manager"||
+                   User.FindFirst(ClaimTypes.Role)?.Value == "Owner"))
                     {
-                        if (User.FindFirst(ClaimTypes.Role)?.Value == "Tenant" && item.Apartment.StatusId == 1 || User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
-                        {
+                       // if (User.FindFirst(ClaimTypes.Role)?.Value == "Tenant" && item.Apartment.StatusId == 1 || User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                       // {
                             <div class="col mb-5">
                                 <div class="card h-100">
                                     
@@ -253,7 +256,7 @@
                                     </div>
                                 </div>
                             </div>
-                        }
+                       // }
                     }
                     
                 }
