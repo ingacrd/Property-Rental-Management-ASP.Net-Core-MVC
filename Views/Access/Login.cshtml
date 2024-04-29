@@ -1,0 +1,104 @@
+﻿@model PropertyRentals.Models.VMLogin;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - PropertyRentals</title>
+
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+    <link rel="stylesheet" href="~/css/mycsstheme.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/access.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PropertyRentals.styles.css" asp-append-version="true" />
+</head>
+<body>
+  @*   <div class="container">
+        <h1 class="mt-5">Login</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-controller="Access" asp-action="Login" method="post">
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input class="form-control" type="text" placeholder="Username" asp-for="UserName" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input class="form-control" type="password" placeholder="Password" asp-for="Password" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="KeepLogedIn" class="control-label">
+                            <input type="checkbox" asp-for="KeepLogedIn" />
+                            Keep me logged In.
+                        </label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button class="btn btn-primary" type="submit">Login</button>
+                        <a class="btn btn-outline-secondary" asp-area="" asp-controller="Access" asp-action="SignUp">SignUp</a>
+                    </div>
+                    <div class="form-group">
+                        @if (ViewData["ValidateMessage"] != null)
+                        {
+
+                            <label class="text-danger">@ViewData["ValidateMessage"]</label>
+                        }
+                    </div>   
+                    
+                </form>
+
+            </div>
+        </div>
+
+    </div> *@
+
+    <div class="register-photo">
+        <div class="form-container">
+            <div class="image-holder">
+                <form asp-controller="Access" asp-action="Login" method="post">
+                    <h2 class="text-center"><strong>Log</strong> in.</h2>
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input class="form-control" type="text" placeholder="Username" asp-for="UserName" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input class="form-control" type="password" placeholder="Password" asp-for="Password" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="KeepLogedIn" class="control-label">
+                            <input type="checkbox" asp-for="KeepLogedIn" />
+                            Keep me logged In.
+                        </label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button class="btn btn-primary" type="submit">Log in</button>
+                        <a class="btn btn-outline-secondary" asp-area="" asp-controller="Access" asp-action="SignUp">SignUp</a>
+                    </div>
+                    <div class="form-group">
+                        @if (ViewData["ValidateMessage"] != null)
+                        {
+
+                            <label class="text-danger">@ViewData["ValidateMessage"]</label>
+                        }
+                    </div>
+
+                </form>
+
+            </div>
+    
+            
+        </div>
+    </div>
+   
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+@*     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

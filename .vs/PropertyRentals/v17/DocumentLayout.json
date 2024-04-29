@@ -1,0 +1,485 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\apartments\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\apartments\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\controllers\\apartmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:controllers\\apartmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\models\\apartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:models\\apartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\access\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\access\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\models\\vmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:models\\vmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\models\\propertyrentaldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:models\\propertyrentaldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\tenants\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\tenants\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\controllers\\tenantscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:controllers\\tenantscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\tenants\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\tenants\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\controllers\\managerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:controllers\\managerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\models\\tenant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:models\\tenant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\tenants\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\tenants\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\tenants\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\tenants\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\tenants\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\tenants\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\managers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\managers\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\controllers\\photoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:controllers\\photoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\managers\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\managers\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\managers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\managers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\access\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\access\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\models\\photo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:models\\photo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\models\\newuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:models\\newuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|c:\\carolina\\webserverapp\\finalproject\\propertyrentals\\views\\photos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9031315D-E822-40A5-919C-0F1D56103B35}|PropertyRentals.csproj|solutionrelative:views\\photos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Apartment.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\Apartment.cs",
+              "RelativeDocumentMoniker": "Models\\Apartment.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\Apartment.cs",
+              "RelativeToolTip": "Models\\Apartment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T01:43:23.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAALEAAAAAAAAAAAAAAB8AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-24T14:58:16.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApartmentsController.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\ApartmentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ApartmentsController.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\ApartmentsController.cs",
+              "RelativeToolTip": "Controllers\\ApartmentsController.cs",
+              "ViewState": "AQIAAEoBAAAAAAAAAAAAAGgBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T18:34:33.626Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Apartments\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Apartments\\Details.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Apartments\\Details.cshtml",
+              "RelativeToolTip": "Views\\Apartments\\Details.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoBAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T17:20:50.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-26T01:35:48.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T13:13:52.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "VMLogin.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\VMLogin.cs",
+              "RelativeDocumentMoniker": "Models\\VMLogin.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\VMLogin.cs",
+              "RelativeToolTip": "Models\\VMLogin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T14:01:58.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAUwDYAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-24T14:15:21.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Access\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Access\\Login.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Access\\Login.cshtml",
+              "RelativeToolTip": "Views\\Access\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-24T14:18:19.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccessController.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\AccessController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccessController.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\AccessController.cs",
+              "RelativeToolTip": "Controllers\\AccessController.cs",
+              "ViewState": "AQIAAKgAAAAAAAAAAAAAAL0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T15:43:28.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PropertyRentalDbContext.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\PropertyRentalDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\PropertyRentalDbContext.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\PropertyRentalDbContext.cs",
+              "RelativeToolTip": "Models\\PropertyRentalDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T13:12:23.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-24T13:12:09.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tenants\\Delete.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Tenants\\Delete.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADMAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T18:21:43.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tenants\\Details.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Details.cshtml",
+              "RelativeToolTip": "Views\\Tenants\\Details.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAQwDAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T18:15:44.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TenantsController.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\TenantsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TenantsController.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\TenantsController.cs",
+              "RelativeToolTip": "Controllers\\TenantsController.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAgwJsAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T18:13:44.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tenants\\Edit.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Tenants\\Edit.cshtml",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwDMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T18:12:39.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tenants\\Create.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Create.cshtml",
+              "RelativeToolTip": "Views\\Tenants\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T18:08:53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Managers\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Managers\\Details.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Managers\\Details.cshtml",
+              "RelativeToolTip": "Views\\Managers\\Details.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAQwDEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T18:05:53.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ManagersController.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\ManagersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ManagersController.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\ManagersController.cs",
+              "RelativeToolTip": "Controllers\\ManagersController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T17:40:16.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PhotosController.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\PhotosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PhotosController.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Controllers\\PhotosController.cs",
+              "RelativeToolTip": "Controllers\\PhotosController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T15:44:09.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Managers\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Managers\\Create.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Managers\\Create.cshtml",
+              "RelativeToolTip": "Views\\Managers\\Create.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABEAAABbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T17:37:37.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Tenant.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\Tenant.cs",
+              "RelativeDocumentMoniker": "Models\\Tenant.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\Tenant.cs",
+              "RelativeToolTip": "Models\\Tenant.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T17:33:33.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tenants\\Index.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Tenants\\Index.cshtml",
+              "RelativeToolTip": "Views\\Tenants\\Index.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T16:14:04.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Managers\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Managers\\Edit.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Managers\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Managers\\Edit.cshtml",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwDMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T18:02:51.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Photos\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Photos\\Create.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Photos\\Create.cshtml",
+              "RelativeToolTip": "Views\\Photos\\Create.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T15:44:24.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Photo.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\Photo.cs",
+              "RelativeDocumentMoniker": "Models\\Photo.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\Photo.cs",
+              "RelativeToolTip": "Models\\Photo.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T15:45:49.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA9wBAAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T15:46:00.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SignUp.cshtml",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Access\\SignUp.cshtml",
+              "RelativeDocumentMoniker": "Views\\Access\\SignUp.cshtml",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Views\\Access\\SignUp.cshtml",
+              "RelativeToolTip": "Views\\Access\\SignUp.cshtml",
+              "ViewState": "AQIAADoAAAAAAAAAAAAQwEYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-22T15:43:02.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "NewUser.cs",
+              "DocumentMoniker": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\NewUser.cs",
+              "RelativeDocumentMoniker": "Models\\NewUser.cs",
+              "ToolTip": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\Models\\NewUser.cs",
+              "RelativeToolTip": "Models\\NewUser.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAA0wBIAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T15:47:44.941Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<PropertyRentals.Models.Apartment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+<h1>Apartments</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+         <tr class="table-primary">
+            <th>
+                Apartment
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rent)
+            </th>
+            <th>
+               Property Code
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class = "table-active">
+            <td>
+                @Html.DisplayFor(modelItem => item.ApartmentCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Rent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyCodeNavigation.PropertyCode)
+            </td>
+            <td>
+                 @if (item.StatusId == 1)
+                 {
+                     <div class="badge bg-warning text-white">
+                         Available
+                     </div>
+                 }
+                 else if (item.StatusId == 2)
+                 {
+                     <div class="badge bg-success text-white">
+                         Rented
+                     </div>
+
+                 }
+                 else if (item.StatusId == 3)
+                 {
+                     <div class="badge bg-danger text-white">
+                         Unavailable
+                     </div>
+
+                 }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApartmentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApartmentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApartmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+</div>

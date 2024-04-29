@@ -1,0 +1,273 @@
+﻿@model IEnumerable<PropertyRentals.Models.ApartmentPhotoLinkViewModel>
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Property Rentals";
+}
+
+<!-- HERO SECTION -->
+<div class="py-1 bg-dark"
+     style="background-image: url('@Url.Content("~/images/dream_home.jpg")'); background-size: cover; background-position: center;">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder text-shadow">Your dream home</h1>
+            <p class="lead fw-normal text-white mb-0 text-shadow">Apartments for rent</p>
+        </div>
+    </div>
+</div>
+<!-- ----------------- -->
+
+
+<!--- ============= ALERTS ==================  -------->
+
+<!------Messages not read ----------->
+@if (ViewBag.Messages != null)
+{
+    <div class="container mt-4">
+        <h2 class="mb-2">Messages</h2>
+        <div class="row">
+            @foreach (var message in ViewBag.Messages)
+            {
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                        <div class="alert alert-dismissible alert-info">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <i class="fa-regular fa-message"></i>
+                        <strong> New Message, </strong>
+                        <a asp-controller="Apartments" asp-action="Details" asp-route-id="@message.ApartmentId" class="alert-link">read now</a>.
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+}
+<!-- ------------------------------------- -->
+<!------ Future Appointments  ----------->
+
+@if (ViewBag.Appointments != null)
+{
+<div class="container mt-4">
+    <h2 class="mb-2">Appointments</h2>
+    <div class="row">
+        @foreach (var appointment in ViewBag.Appointments)
+        {
+            if (appointment.StatusId == 4)
+            {
+                <!--  Appointment pending --->
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                        <div class="alert alert-dismissible alert-warning">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <h4 class="alert-heading">Pending confirmation</h4>
+                                <p class="mb-0">Date: @appointment.AppointmentDateTime.ToString("yyyy-MM-dd, HH:mm")</p>
+                            <p class="mb-0"> Wait confirmation or <a asp-controller="Apartments" asp-action="Details" asp-route-id="@appointment.ApartmentId" class="alert-link">send a message</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (appointment.StatusId == 6)
+            {
+                <!--  Appointment cancelled --->
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                        <div class="alert alert-dismissible alert-danger">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <i class="fa-regular fa-calendar-days"></i>
+                            <h4 class="alert-heading">Appointment canceled</h4>
+                            <p class="mb-0">Date: @appointment.AppointmentDateTime.ToString("yyyy-MM-dd, HH:mm")</p>
+                            <p class="mb-0"> Any doubt?, <a asp-controller="Apartments" asp-action="Details" asp-route-id="@appointment.ApartmentId" class="alert-link">send a message</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if(appointment.StatusId == 5)
+            {
+                <!--  Appointment confirm --->
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                        <div class="alert alert-dismissible alert-success">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <i class="fa-regular fa-calendar-days"></i>
+                            <h4 class="alert-heading">Appointment confirmed</h4>
+                            <p class="mb-0">Date: @appointment.AppointmentDateTime.ToString("yyyy-MM-dd, HH:mm")</p>
+                            <p class="mb-0"> Something to say?, <a asp-controller="Apartments" asp-action="Details" asp-route-id="@appointment.ApartmentId" class="alert-link">send a message</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+}
+
+<!------ Pending Events  ----------->
+@if(ViewBag.PendingEvents != null)
+{
+    <div class="container mt-4">
+        <h2 class="mb-2">Pending events</h2>
+        <div class="row">
+            @foreach (var pendingEvent in ViewBag.PendingEvents)
+            {
+                <div class="col-lg-4">
+                    <div class="bs-component">
+                    <div class="alert alert-dismissible alert-warning">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <i class="fa-solid fa-clock"></i>
+                        <h4 class="alert-heading">Pending Event</h4>
+                        <p class="mb-0">Date: @pendingEvent.EventDate.ToString("yyyy-MM-dd")</p>
+                        <p>@pendingEvent.Description</p>
+                        <p class="mb-0"><a asp-controller="Apartments" asp-action="Details" asp-route-id="@pendingEvent.ApartmentId" class="alert-link">See details</a></p>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+}
+
+<!-- ------------------------------------- -->
+<!-- ===================================== -->
+
+
+<!--APARTMENTS RENTED -->
+@if (ViewBag.apartmentsRented != null)
+{
+    <div class="container mt-4">
+        <h2 class="mb-2">My apartments rented</h2>
+        @foreach (var rented in ViewBag.apartmentsRented)
+        {
+            <div class="card bg-light mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title">@rented.Apartment.Title</h5>
+                            <p class="card-text"><small><i class="fa-solid fa-location-dot"></i> @rented.Address</small></p>
+                            <p class="card-text"><small>Apartment @rented.Apartment.ApartmentCode</small></p>
+                            <a class="btn btn-primary btn-sm" asp-controller="Apartments" asp-action="Details" asp-route-id="@rented.Apartment.ApartmentId">Manage</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="@rented.PhotoLink" class="img-fluid h-100" alt="...">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
+<!--APARTMENTS LIST -->
+
+<div class="container">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @foreach (var item in Model)
+                {
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.FindFirst(ClaimTypes.Role)?.Value == "Tenant" && item.Apartment.StatusId == 1 || User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                        {
+                            <div class="col mb-5">
+                                <div class="card h-100">
+                                    
+                                        @if (item.Apartment.StatusId == 1)
+                                        {
+                                        <div class="badge bg-warning text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                                                Available
+                                            </div>
+                                        }
+                                        else if (item.Apartment.StatusId == 2)
+                                        {
+                                        <div class="badge bg-success text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                                                Rented
+                                            </div>
+                                           
+                                        }
+                                        else if (item.Apartment.StatusId == 3)
+                                        {
+                                        <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                                                Unavailable
+                                            </div>
+                                            
+                                        }
+                                    
+                                    <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.PhotoLink)" alt="..." />
+                                    <div class="card-body p-2">
+                                        <div class="text-center">
+                                            <h5 class="fw-bolder">@Html.DisplayFor(modelItem => item.Apartment.Title)</h5>
+                                            <p>$@Html.DisplayFor(modelItem => item.Apartment.Rent)</p>
+
+                                            <div class="row small-text">
+                                                <div class="col">
+                                                    <i class="fa-solid fa-bed"></i>
+                                                </div>
+                                                <div class="col">
+                                                    <p>@Html.DisplayFor(modelItem => item.Apartment.Bedrooms) bedrooms</p>
+                                                </div>
+                                            </div>
+                                            <div class="row small-text">
+                                                <div class="col">
+                                                    <i class="fa-solid fa-bath"></i>
+                                                </div>
+                                                <div class="col">
+                                                    <p>@Html.DisplayFor(modelItem => item.Apartment.Bathrooms) bathrooms</p>
+                                                </div>
+                                            </div>
+                                            <div class="row small-text">
+                                                <div class="col">
+                                                    <i class="fa-solid fa-chart-area"></i>
+                                                </div>
+                                                <div class="col">
+                                                    <p>@Html.DisplayFor(modelItem => item.Apartment.FloorArea) sqm</p>
+                                                </div>
+                                            </div>
+                                            <div class="row small-text">
+                                                <div class="col">
+                                                    <i class="fa-solid fa-square-parking"></i>
+                                                </div>
+                                                <div class="col">
+                                                    <p>@Html.DisplayFor(modelItem => item.Apartment.ParkingSpots) parking spot</p>
+                                                </div>
+                                            </div>
+                                            <div class="row small-text">
+                                                <div class="col">
+                                                    <i class="fa-solid fa-location-dot"></i>
+                                                </div>
+                                                <div class="col text-start">
+                                                    <p>@Html.DisplayFor(modelItem => item.Address)</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center"><a asp-controller="Apartments" asp-action="Details" asp-route-id="@item.Apartment.ApartmentId" class="btn btn-outline-dark mt-auto">Details</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    
+                }
+
+   
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- ------------------ -->
+
+
+
+
+
+

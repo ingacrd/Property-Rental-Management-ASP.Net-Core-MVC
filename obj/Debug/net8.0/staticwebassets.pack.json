@@ -1,0 +1,353 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PropertyRentals.bundle.scp.css",
+      "PackagePath": "staticwebassets\\PropertyRentals.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\css\\access.css",
+      "PackagePath": "staticwebassets\\css\\access.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\css\\mycsstheme.css",
+      "PackagePath": "staticwebassets\\css\\mycsstheme.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\16025716-c08c-4ac9-850f-eeab6a29e5d5.jpeg",
+      "PackagePath": "staticwebassets\\images\\apartments\\16025716-c08c-4ac9-850f-eeab6a29e5d5.jpeg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\2d50ea30-4270-4d1b-8c21-38cc1add8570.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\2d50ea30-4270-4d1b-8c21-38cc1add8570.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\2dc70c6e-36cf-42be-ada2-c24b25b84104.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\2dc70c6e-36cf-42be-ada2-c24b25b84104.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\61d9bd0c-367c-42a8-8d35-9470f87f9ade.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\61d9bd0c-367c-42a8-8d35-9470f87f9ade.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\71bd7481-6200-4d63-b560-bcd1ee35442f.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\71bd7481-6200-4d63-b560-bcd1ee35442f.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\81d7c342-9773-4d37-b5d7-a35fa09ad7ef.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\81d7c342-9773-4d37-b5d7-a35fa09ad7ef.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\b28453cb-130d-49de-999b-ed2b5d038151.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\b28453cb-130d-49de-999b-ed2b5d038151.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\ef9da16f-1c69-4546-bc74-96d35b3513a2.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\ef9da16f-1c69-4546-bc74-96d35b3513a2.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\f1489bba-2e33-4210-aa1f-6fbcfb32f982.jpg",
+      "PackagePath": "staticwebassets\\images\\apartments\\f1489bba-2e33-4210-aa1f-6fbcfb32f982.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\dream_home.jpg",
+      "PackagePath": "staticwebassets\\images\\dream_home.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\1e999fe7-bc2a-4f39-af58-bce624b2a6a8.png",
+      "PackagePath": "staticwebassets\\images\\users\\1e999fe7-bc2a-4f39-af58-bce624b2a6a8.png"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\26c96be9-2b65-4bf6-9410-b2924528df82.png",
+      "PackagePath": "staticwebassets\\images\\users\\26c96be9-2b65-4bf6-9410-b2924528df82.png"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\5d284b45-b3ee-4ec2-9d71-4b89b5354486.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\5d284b45-b3ee-4ec2-9d71-4b89b5354486.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\73e0ffc2-e8f7-4008-91f8-db290e538e89.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\73e0ffc2-e8f7-4008-91f8-db290e538e89.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\c2c56115-c62a-4777-822d-c1e6296b4c16.png",
+      "PackagePath": "staticwebassets\\images\\users\\c2c56115-c62a-4777-822d-c1e6296b4c16.png"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\f0809caa-f990-4bd8-98d5-78fd0382c215.png",
+      "PackagePath": "staticwebassets\\images\\users\\f0809caa-f990-4bd8-98d5-78fd0382c215.png"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\francisco.png",
+      "PackagePath": "staticwebassets\\images\\users\\francisco.png"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\johndoe.png",
+      "PackagePath": "staticwebassets\\images\\users\\johndoe.png"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\manger1.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\manger1.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\tenant2.jpg",
+      "PackagePath": "staticwebassets\\images\\users\\tenant2.jpg"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PropertyRentals.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PropertyRentals.props",
+      "PackagePath": "build\\PropertyRentals.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PropertyRentals.props",
+      "PackagePath": "buildMultiTargeting\\PropertyRentals.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PropertyRentals.props",
+      "PackagePath": "buildTransitive\\PropertyRentals.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,576 @@
+﻿@model PropertyRentals.Models.Apartment
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using System.Security.Claims
+@using PropertyRentals.Models
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //var managerUserJson = ViewData["ManagerUser"] as string;
+   // var managerUser = Newtonsoft.Json.JsonConvert.DeserializeObject<Manager>(managerUserJson);
+}
+
+
+
+<div class="container">
+
+    <div>
+        <div class="photo-gallery">
+            <div class="container">
+                <div class="intro">
+                    <h2 class="text-center">@Html.DisplayFor(model => model.Title)</h2>
+                    <p class="text-center"><small>@(((Property)ViewData["Property"]).Address + ", " + ((Property)ViewData["Property"]).City + ", " + ((Property)ViewData["Property"]).State + ", " + ((Property)ViewData["Property"]).ZipCode)</small></p>
+                    <p class="text-center">
+                        @Html.DisplayFor(model => model.Description)
+                        </p>
+                </div>
+                <div class="row photos">
+                    @foreach (var photo in ViewBag.Photos)
+                    {
+                        <div class="col-sm-6 col-md-4 col-lg-3 item">
+                            <a href="@Url.Content(photo.PhotoLink)" data-lightbox="photos">
+                                <img class="img-fluid" src="@Url.Content(photo.PhotoLink)">
+                            </a>
+                            @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                            {
+                               <div class="row">
+                                  <div class="col">
+                                        <a asp-controller="Photos" asp-action="Delete" asp-route-id="@photo.PhotoId" class="text-decoration-none text-primary"><i class="fa-solid fa-trash-can" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"></i></a>
+                                  </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    
+                    
+                </div>
+                @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+            {
+                <a class="btn btn-primary" asp-controller="Photos" asp-action="Create" asp-route-apartmentId="@Model.ApartmentId">Add photo</a>
+            }
+            </div>
+        </div>
+
+        <hr />
+
+        @* ==============================   TABS ================================ *@
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" href="#details" aria-selected="true" role="tab" tabindex="-1">Details</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#messages" aria-selected="false" role="tab">Messages</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#appointments" aria-selected="false" role="tab">Appointments</a>
+            </li>
+            @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+            {
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#events" aria-selected="false" role="tab">Events</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#rental" aria-selected="false" role="tab">Rental</a>
+            </li>
+
+            }
+@*             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Managment</a>
+                <div class="dropdown-menu" style="">
+                    <h6 class="dropdown-header">Dropdown header</h6>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </li> *@
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            @* ----------------------- details Content -------------------------*@
+            <div class="tab-pane fade active show" id="details" role="tabpanel">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr class="table-active">
+                            <th scope="row">Apartment</th>
+                            <td> @Html.DisplayFor(model => model.ApartmentCode)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Type)</th>
+                            <td>@Html.DisplayFor(model => model.Type)</td>
+                        </tr>
+                        <tr class="table-active">
+                            <th scope="row">@Html.DisplayNameFor(model => model.Rent)</th>
+                            <td>$ @Html.DisplayFor(model => model.Rent)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Status)</th>
+                            <td>
+                                @if (Model.Status.StatusId == (int) StatusType.ApartmentAvailable)
+                                {
+                                    <div class="row justify-content-between">
+                                        <div class="col">
+                                            <span class="badge bg-warning">Available</span>
+                                        </div>
+                                        @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                        {
+                                            <div class="col align-self-end">
+                                                <a asp-controller="Apartments" asp-action="MakeUnavailable" asp-route-id="@Model.ApartmentId" class="text-decoration-none text-danger"><i class="fa-solid fa-rectangle-xmark" data-bs-toggle="tooltip" data-bs-placement="top" title="Make it unavailable"></i></a>
+                                            </div>
+                                        }
+                                    </div>
+                                    
+                                }
+                                else if (Model.Status.StatusId == (int) StatusType.ApartmentRented)
+                                {
+                                    <span class="badge bg-success">Rented</span>
+                                }
+                                else if (Model.Status.StatusId == (int) StatusType.ApartmentUnavailable)
+                                {
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="badge bg-danger">Unavailable</span>
+                                        </div>
+                                        <div class="col align-self-end">
+                                            <a asp-controller="Apartments" asp-action="MakeAvailable" asp-route-id="@Model.ApartmentId" class="text-decoration-none text-success"><i class="fa-solid fa-square-check" data-bs-toggle="tooltip" data-bs-placement="top" title="Make it available"></i></a>
+                                        </div>
+                                    </div>
+                                }
+                            </td>
+                        </tr>
+                        <tr class="table-active">
+                            <th scope="row">@Html.DisplayNameFor(model => model.Bedrooms)</th>
+                            <td> @Html.DisplayFor(model => model.Bedrooms)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Bathrooms)</th>
+                            <td>@Html.DisplayFor(model => model.Bathrooms)</td>
+                        </tr>
+                        <tr class="table-active">
+                            <th scope="row">@Html.DisplayNameFor(model => model.FloorArea)</th>
+                            <td> @Html.DisplayFor(model => model.FloorArea) sqm</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.ParkingSpots)</th>
+                            <td>@Html.DisplayFor(model => model.ParkingSpots)</td>
+                        </tr>
+                        <tr class="table-active">
+                            <th scope="row">Address</th>
+                            <td>@(((Property)ViewData["Property"]).Address + ", " + ((Property)ViewData["Property"]).City + ", " + ((Property)ViewData["Property"]).State + ", " + ((Property)ViewData["Property"]).ZipCode)</small></p></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            @* ----------------------- Messages Content -------------------------*@
+
+            <div class="tab-pane fade" id="messages" role="tabpanel">
+            
+                <section style="background-color: #eee;">
+                    <div class="container py-5 overflow-auto" style="height: 300px;">
+                            <ul class="list-unstyled">
+                                @foreach (var message in ViewBag.Messages)
+                                {
+                                    var msj = message.Message;
+                                    var senderDetails = message.SenderDetails;
+                                    if (msj.SenderUserId == (int)ViewData["UserId"])
+                                    {
+                                        <li class="d-flex justify-content-between mb-4">
+                                        <img src="@Url.Content($"~/images/users/{senderDetails.Photo}")" alt="avatar"
+                                                 class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
+                                            <div class="card w-100">
+                                                <div class="card-header d-flex justify-content-between p-3">
+                                                    <p class="fw-bold mb-0">
+                                                        @senderDetails.FirstName @senderDetails.LastName
+                                                    </p>
+                                                    <p class="text-muted small mb-0"><i class="far fa-clock"></i> @msj.MessageDateTime.ToString("yyyy-MM-dd, HH:mm")</p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="mb-0">
+                                                         @msj.Body 
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="d-flex justify-content-between mb-4">
+                                            <div class="card w-100">
+                                                <div class="card-header d-flex justify-content-between p-3">
+                                                    <p class="fw-bold mb-0">
+                                                        @senderDetails.FirstName @senderDetails.LastName
+                                                    </p>
+                                                    <p class="text-muted small mb-0"><i class="far fa-clock"></i> @msj.MessageDateTime.ToString("yyyy-MM-dd, HH:mm")</p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="mb-0">
+                                                        @msj.Body
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        <img src="@Url.Content($"~/images/users/{senderDetails.Photo}")" alt="avatar"
+                                                 class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
+                                        </li>
+                                    }
+                                }           
+
+                               
+                            </ul>
+                      
+
+                    </div>
+                    @using (Html.BeginForm("Create", "Mensajes", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="container py-5">
+                            <div class="bg-white mb-3">
+                                <div data-mdb-input-init class="form-outline">
+                                    <textarea name="Body" class="form-control" id="textAreaExample2" rows="4" placeholder="write your message"></textarea>
+                                </div>
+                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                {
+                                    <div class="mb-3">
+                                        <label for="userList" class="form-label">Select User:</label>
+                                        <select name="ReceiverUserId" id="userList" class="form-select">
+                                            @foreach (var tenant in @ViewBag.AllTenants)
+                                            {
+                                                <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <input type="hidden" name="ReceiverUserId" value="@ViewData["ManagerUserId"]" />
+                                }
+                            }
+
+                            <input type="hidden" name="SenderUserId" value="@ViewData["UserId"]" />
+                            
+                            <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
+                            <input type="hidden" name="Subject" value="Message from apartment" />
+                 @*            <input type="hidden" name="MessageDateTime" value="@DateTime.Now" /> *@
+                            <input type="hidden" name="StatusId" value="11" />
+                            <button type="submit" class="btn btn-info btn-rounded float-end">Send</button>
+                    </div>
+                    }
+                </section>
+
+            </div>
+
+            @* ----------------------- Appointments Content -------------------------*@
+            @*
+            ViewData["User"] = usr;
+            ViewBag.Messages = messages.ToListAsync();
+            ViewData["Property"] = property;
+            ViewBag.Photos = photos; 
+            ViewBag.Appointments = appointments;*@
+            <div class="tab-pane fade " id="appointments" role="tabpanel">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">Date</th>
+                            <th scope="col">Hour</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th></th>
+                            @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                            {
+                                <th scope="col">TenantId</th>
+                            }
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var appointment in ViewBag.Appointments)
+                        {
+                            <tr class="table-active">
+                                <td>@appointment.AppointmentDateTime.ToString("yyyy-MM-dd")</td>
+                                <td>@appointment.AppointmentDateTime.ToString("HH:mm")</td>
+                                <td>@appointment.Description</td>
+                                
+                                <td>
+                                    @if (appointment.StatusId == 5)
+                                    {
+                                        <text>Confirmed</text>
+                                    }
+                                    else if (appointment.StatusId == 6)
+                                    {
+                                        <text>Cancel</text>
+                                    }
+                                    else 
+                                    {
+                                        <text>Pending</text>
+                                    }
+                                    
+                                </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a asp-controller="Appointments1" asp-action="ConfirmUpdate" asp-route-id="@appointment.AppointmentId" class="text-decoration-none text-success"><i class="fa-solid fa-square-check" data-bs-toggle="tooltip" data-bs-placement="top" title="Confirm"></i></a>
+                                            </div>
+                                            <div class="col">
+                                                <a asp-controller="Appointments1" asp-action="CancelUpdate" asp-route-id="@appointment.AppointmentId" class="text-decoration-none text-danger"><i class="fa-solid fa-rectangle-xmark" data-bs-toggle="tooltip" data-bs-placement="top" title="Cancel"></i></a>
+                                            </div>
+                                        @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                        {
+                                            <div class="col">
+                                                <a asp-controller="Appointments1" asp-action="Delete" asp-route-id="@appointment.AppointmentId" class="text-decoration-none text-primary"><i class="fa-solid fa-trash-can" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"></i></a>
+                                            </div>
+                                        }
+                                        </div>
+                                    </td>
+                                @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                {
+                                    <td scope="col">@appointment.TenantId</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <h4>Create New Appointment</h4>
+                <hr />
+              
+                <div class="row">
+                    <div class="col-3">
+                        <form asp-controller="Appointments1" asp-action="Create" method="post">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                                {
+                                    <label for="userList" class="form-label">Select Tenant:</label>
+                                    <select name="TenantId" id="userList" class="form-select">
+                                         @foreach (var tenant in @ViewBag.AllTenants)
+                                         {
+                                            <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
+                                         }
+                                    </select>
+                                }
+                                else
+                                {
+                                    <input type="hidden" name="TenantId" value="@ViewData["TenantId"]" />
+                                }
+                            }
+                            <input type="hidden" name="TenantId" value="@ViewData["TenantId"]" />
+                            <input type="hidden" name="ManagerId" value="@ViewData["ManagerId"]" />
+                            <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
+
+                            <div class="form-group">
+                                <label for="AppointmentDateTime" class="control-label">Appointment Date and Time</label>
+                                <input type="datetime-local" name="AppointmentDateTime" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description" class="control-label">Description</label>
+                                <input type="text" name="Description" class="form-control" />
+                            </div>
+
+                            <input type="hidden" name="StatusId" value="4" />
+
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            
+            @* ----------------------- Events Content -------------------------*@
+            @*
+            ViewData["User"] = usr;
+            ViewBag.Messages = messages.ToListAsync();
+            ViewData["Property"] = property;
+            ViewBag.Photos = photos;
+            ViewBag.Appointments = appointments;*@
+            <div class="tab-pane fade " id="events" role="tabpanel">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">Date</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @* @foreach (var appointment in ViewBag.Appointments) *@
+                        @if (ViewBag.EventDetails != null)
+                        {
+                            @foreach (var eventDetails in ViewBag.EventDetails)
+                            {
+                                <tr class="table-active">
+                                    <td>@eventDetails.Events.EventDate.ToString("yyyy-MM-dd")</td>
+                                    <td>@eventDetails.Events.Description</td>
+                                    <td>
+                                        @if (eventDetails.statusType == StatusType.EventPending)
+                                        {
+                                            <span class="badge bg-warning">Pending</span>
+                                        }
+                                        else if (eventDetails.statusType == StatusType.EventSolved)
+                                        {
+                                            <span class="badge bg-success">Solved</span>
+                                        }
+
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                @if (eventDetails.statusType == StatusType.EventPending)
+                                                {
+                                                    <a asp-controller="Events" asp-action="SolvedUpdate" asp-route-id="@eventDetails.Events.EventId" class="text-decoration-none text-success"><i class="fa-solid fa-square-check" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as solved"></i></a>
+                                                }
+                                                else if (eventDetails.statusType == StatusType.EventSolved)
+                                                {
+                                                    <a asp-controller="Events" asp-action="PendingUpdate" asp-route-id="@eventDetails.Events.EventId" class="text-decoration-none text-warning"><i class="fa-solid fa-clock" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as pending"></i></a>
+                                                }
+
+                                            </div>
+                                            <div class="col">
+                                                <a asp-controller="Events" asp-action="Delete" asp-route-id="@eventDetails.Events.EventId" class="text-decoration-none text-primary"><i class="fa-solid fa-trash-can" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"></i></a>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        
+                        
+                    </tbody>
+                </table>
+
+                <h4>Report and Create an Event</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-3">
+                        <form asp-controller="Events" asp-action="Create" method="post">
+                            <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
+                            <div class="form-group">
+                                <label for="Description" class="control-label">Description</label>
+                                <input type="text" name="Description" class="form-control" />
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            @* ----------------------- Rental Content -------------------------*@
+
+            <div class="tab-pane fade " id="rental" role="tabpanel">
+                
+                    <h3>Rentals</h3>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="table-primary">
+                                <th scope="col">TenantId</th>
+                                <th scope="col">RentalDate</th>
+                                <th scope="col">EndContractDate</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @if (ViewBag.Rentals != null)
+                        {
+                            @foreach (var rental in ViewBag.Rentals)
+                            {
+                                <tr class="table-active">
+                                    <td>@rental.TenantId</td>
+                                    <td>@rental.RentalDate.ToString("yyyy-MM-dd")</td>
+                                    <td>@rental.EndContractDate.ToString("yyyy-MM-dd")</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a asp-controller="Rentals" asp-action="Edit" asp-route-id="@rental.RentalId">
+                                                    <i class="fa-solid fa-file-pen text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit contract"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <a asp-controller="Rentals" asp-action="EndContract" asp-route-id="@rental.RentalId" class="text-decoration-none text-danger">
+                                                    <i class="fa-solid fa-calendar-xmark" data-bs-toggle="tooltip" data-bs-placement="top" title="End contract"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        
+                            
+                        </tbody>
+                    </table>
+                    @if(ViewData["RentalApartment"] == "false" ){
+                    <h4>Create New Rental</h4>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-3">
+                            <form asp-controller="Rentals" asp-action="Create" method="post">
+                                   
+                                <label for="userList" class="form-label">Select Tenant:</label>
+                                <select name="TenantId" id="userList" class="form-select">
+                                    @foreach (var tenant in @ViewBag.AllTenants)
+                                    {
+                                        <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
+                                    }
+                                </select>
+                                <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
+
+                                <div class="form-group">
+                                    <label for="RentalDate" class="control-label">Rental Date</label>
+                                    <input type="date" name="RentalDate" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="EndContractDate" class="control-label">End Contract Date</label>
+                                    <input type="date" name="EndContractDate" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    
+                    
+                    }
+
+
+            </div>
+
+
+@*             <div class="tab-pane fade" id="dropdown2">
+                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+            </div> *@
+        </div>
+
+       
+    </div>
+@*   <div>
+        <a asp-action="Edit" asp-route-id="@Model?.ApartmentId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div> *@
+
+</div>
+
+

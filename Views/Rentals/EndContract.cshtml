@@ -1,0 +1,48 @@
+﻿@model PropertyRentals.Models.Rental
+
+@{
+    ViewData["Title"] = "End Contract";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h1>End Contract</h1>
+
+    <h3>Are you sure you want to end this contract?</h3>
+    <div>
+        <h4>Rental</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RentalDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RentalDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EndContractDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EndContractDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Apartment)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Apartment.ApartmentId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Tenant)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Tenant.TenantId)
+            </dd>
+        </dl>
+
+        <form asp-action="EndContract">
+            <input type="hidden" asp-for="RentalId" />
+            <input type="submit" value="EndContract" class="btn btn-danger" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,48 @@
+﻿@model PropertyRentals.Models.Photo
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h1>Create</h1>
+
+    <h4>Photo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="PhotoFile" class="control-label"></label>
+                    <input type="file" name="PhotoFile" class="form-control" />
+                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
+                </div>
+                @* <div class="form-group">
+                    <label asp-for="PhotoLink" class="control-label"></label>
+                    <input asp-for="PhotoLink" class="form-control" />
+                    <span asp-validation-for="PhotoLink" class="text-danger"></span>
+                </div> *@
+                <div class="form-group">
+                    <label asp-for="ApartmentId" class="control-label"></label>
+                    <select asp-for="ApartmentId" class="form-control" asp-items="ViewBag.ApartmentId"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+            @* <input asp-for="ApartmentId" class="form-control" value="ViewBag.ApartmentId"></input> *@
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
