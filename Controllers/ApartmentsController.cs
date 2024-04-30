@@ -197,13 +197,13 @@ namespace PropertyRentals.Controllers
                     ViewBag.Rentals = rentalDetails;
 
                     var apartmentRented = (from a in _context.Rentals
-                                           where a.ApartmentId == apartment.ApartmentId && a.EndContractDate <= DateOnly.FromDateTime(DateTime.Now)
+                                           where a.ApartmentId == apartment.ApartmentId && a.EndContractDate > DateOnly.FromDateTime(DateTime.Now)
                                            select a).FirstOrDefault();
                     if (apartmentRented != null)
                     {
-                        ViewData["RentalApartment"] = "false";
+                        ViewData["RentalApartment"] = "true";
                     }
-                    else ViewData["RentalApartment"] = "true";
+                    else ViewData["RentalApartment"] = "false";
 
                     if (claimUser.IsInRole("Manager"))
                     {
@@ -248,8 +248,12 @@ namespace PropertyRentals.Controllers
         // GET: Apartments/Create
         public IActionResult Create()
         {
+            var filteredStatuses = _context.Statuses.Where(s => s.StatusId >= 1 && s.StatusId <= 3);
+            var statusSelectList = new SelectList(filteredStatuses, "StatusId", "Description");
+            ViewData["StatusId"] = statusSelectList;
+
             ViewData["PropertyCode"] = new SelectList(_context.Properties, "PropertyCode", "PropertyCode");
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusId");
+           // ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusId");
             return View();
         }
 
@@ -281,8 +285,12 @@ namespace PropertyRentals.Controllers
             {
                 return NotFound();
             }
+            var filteredStatuses = _context.Statuses.Where(s => s.StatusId >= 1 && s.StatusId <= 3);
+            var statusSelectList = new SelectList(filteredStatuses, "StatusId", "Description", apartment.StatusId);
+            ViewData["StatusId"] = statusSelectList;
+
             ViewData["PropertyCode"] = new SelectList(_context.Properties, "PropertyCode", "PropertyCode", apartment.PropertyCode);
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusId", apartment.StatusId);
+            //ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusId", apartment.StatusId);
             return View(apartment);
         }
 

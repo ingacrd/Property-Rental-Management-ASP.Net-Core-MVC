@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container">
-    <h1>Index</h1>
+    <h1>Tenants</h1>
 @* 
     <p>
         <a asp-action="Create">Create New</a>
@@ -14,46 +14,46 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
+                    First Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.LastName)
+                    Last Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+                    Email
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Phone)
+                    Phone
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.User)
+                    User Id
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var tenant in ViewBag.Tenants)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
+                        @tenant.User.FirstName
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
+                        @tenant.User.LastName
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Email)
+                        @tenant.User.Email
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Phone)
+                        @tenant.User.Phone
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.User.UserId)
+                        @tenant.User.UserId
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.TenantId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.TenantId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.TenantId">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@tenant.Tenant.TenantId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@tenant.Tenant.TenantId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@tenant.Tenant.TenantId">Delete</a>
                     </td>
                 </tr>
             }

@@ -114,6 +114,10 @@ namespace PropertyRentals.Controllers
                 {
                     if (claimUser.IsInRole("Manager"))
                     {
+                        var managerDetails = (from m in _context.Managers
+                                      where m.UserId == user.UserId
+                                      select m).FirstOrDefault();
+                        ViewData["ManagerId"] = managerDetails.ManagerId;
                         //Find Appointments to Mananger 
                         var now = DateTime.Now;
 
@@ -156,12 +160,13 @@ namespace PropertyRentals.Controllers
                                           join b in _context.Properties
                                           on a.PropertyCode equals b.PropertyCode into apartmentProperty
                                           from property in apartmentProperty.DefaultIfEmpty()
-                                          group new { a, photo, property } by a into g
+                                          group new { a, photo, property} by a into g
                                           select new ApartmentPhotoLinkViewModel 
                                            {
                                               Apartment = g.Key,
                                               PhotoLink = g.Select(p => p.photo.PhotoLink).FirstOrDefault(),
-                                              Address = g.Select(p => p.property.Address).FirstOrDefault()
+                                              Address = g.Select(p => p.property.Address).FirstOrDefault(),
+                                              Property = g.Select(p => p.property).FirstOrDefault(),
                                           };
 
             return View(await propertyRentalDbContext.ToListAsync());

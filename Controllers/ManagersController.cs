@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using PropertyRentals.Models;
 
 namespace PropertyRentals.Controllers
@@ -24,7 +25,20 @@ namespace PropertyRentals.Controllers
         public async Task<IActionResult> Index()
         {
             var propertyRentalDbContext = _context.Managers.Include(m => m.User);
+
+
+
+            var managersData = await (from m in _context.Managers
+                                          join u in _context.Users on m.UserId equals u.UserId 
+                                          select new
+                                          {
+                                              Managers = m,
+                                              UserDetails = u
+                                          }).ToListAsync();
+
+            ViewBag.ManagersData = managersData;
             return View(await propertyRentalDbContext.ToListAsync());
+            //return View();
         }
 
         // GET: Managers/Details/5
@@ -64,24 +78,22 @@ namespace PropertyRentals.Controllers
                       where u.UserId == manager.UserId
                       select u).FirstOrDefault();
 
-            manager.FirstName = user.FirstName;
-            manager.LastName = user.LastName;
-            manager.Email = user.Email;
-            manager.Phone = user.Phone;
+            user.UserType = "Manager";
+            _context.Users.Update(user);
+
+            manager.FirstName = "-";
+            manager.LastName = "-";
+            manager.Email = "-";
+            manager.Phone = "-";
 
             _context.Add(manager);
-            await _context.SaveChangesAsync();
 
             var tenant = (from t in _context.Tenants
                           where t.UserId == user.UserId
                           select t).FirstOrDefault();
 
+
             _context.Tenants.Remove(tenant);
-            await _context.SaveChangesAsync();
-
-            user.UserType = "Manager";
-            _context.Users.Update(user);
-
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
            
@@ -164,9 +176,27 @@ namespace PropertyRentals.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var manager = await _context.Managers.FindAsync(id);
+
+            
             if (manager != null)
             {
+                var user = (from u in _context.Users
+                            where u.UserId == manager.UserId
+                            select u).FirstOrDefault();
+                user.UserType = "Tenant";
                 _context.Managers.Remove(manager);
+                _context.Update(user);
+
+                Tenant tenant = new Tenant
+                {
+                    UserId = user.UserId,
+                    FirstName = "-",
+                    LastName = "-",
+                    Email = "-",
+                    Phone = "-",
+                };
+
+                _context.Add(tenant);
             }
 
             await _context.SaveChangesAsync();

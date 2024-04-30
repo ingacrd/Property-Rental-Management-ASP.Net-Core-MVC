@@ -51,7 +51,8 @@ namespace PropertyRentals.Controllers
                              on a.ApartmentId equals p.ApartmentId into apartmentPhotos
                              from photo in apartmentPhotos.DefaultIfEmpty()
                              join b in _context.Properties
-                             on a.PropertyCode equals property.PropertyCode into apartmentProperty
+                             on a.PropertyCode equals b.PropertyCode into apartmentProperty
+                             where a.PropertyCode == id
                              from building in apartmentProperty.DefaultIfEmpty()
                              group new { a, photo, building } by a into g
                              select new ApartmentPhotoLinkViewModel
