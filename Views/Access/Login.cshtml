@@ -17,46 +17,8 @@
     <link rel="stylesheet" href="~/css/access.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PropertyRentals.styles.css" asp-append-version="true" />
 </head>
-<body>
-  @*   <div class="container">
-        <h1 class="mt-5">Login</h1>
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-controller="Access" asp-action="Login" method="post">
-                    <div class="form-group">
-                        <label asp-for="UserName" class="control-label"></label>
-                        <input class="form-control" type="text" placeholder="Username" asp-for="UserName" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input class="form-control" type="password" placeholder="Password" asp-for="Password" />
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="KeepLogedIn" class="control-label">
-                            <input type="checkbox" asp-for="KeepLogedIn" />
-                            Keep me logged In.
-                        </label>
-                    </div>
-                    <div class="form-group mt-3">
-                        <button class="btn btn-primary" type="submit">Login</button>
-                        <a class="btn btn-outline-secondary" asp-area="" asp-controller="Access" asp-action="SignUp">SignUp</a>
-                    </div>
-                    <div class="form-group">
-                        @if (ViewData["ValidateMessage"] != null)
-                        {
-
-                            <label class="text-danger">@ViewData["ValidateMessage"]</label>
-                        }
-                    </div>   
-                    
-                </form>
-
-            </div>
-        </div>
-
-    </div> *@
-
-    <div class="register-photo">
+<body class="">
+    <div class="register-photo container-fluid">
         <div class="form-container">
             <div class="image-holder">
                 <form asp-controller="Access" asp-action="Login" method="post">
