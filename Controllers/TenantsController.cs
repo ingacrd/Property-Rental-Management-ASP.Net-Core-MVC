@@ -24,6 +24,16 @@ namespace PropertyRentals.Controllers
         public async Task<IActionResult> Index()
         {
             var propertyRentalDbContext = _context.Tenants.Include(t => t.User);
+
+            var tenants = await (from t in _context.Tenants
+                                      join u in _context.Users on t.UserId equals u.UserId
+                                      select new
+                                      {
+                                          Tenant = t,
+                                          User = u
+                                      }).ToListAsync();
+
+            ViewBag.Tenants = tenants;
             return View(await propertyRentalDbContext.ToListAsync());
         }
 
@@ -42,6 +52,15 @@ namespace PropertyRentals.Controllers
             {
                 return NotFound();
             }
+
+            var user = (from u in _context.Users
+                        where u.UserId == tenant.UserId
+                        select u).FirstOrDefault();
+
+            tenant.FirstName = user.FirstName;
+            tenant.LastName = user.LastName;
+            tenant.Email = user.Email;
+            tenant.Phone = user.Phone;
 
             return View(tenant);
         }
@@ -83,6 +102,18 @@ namespace PropertyRentals.Controllers
             {
                 return NotFound();
             }
+
+
+            var user = (from u in _context.Users
+                        where u.UserId == tenant.UserId
+                        select u).FirstOrDefault();
+
+            tenant.FirstName = user.FirstName;
+            tenant.LastName = user.LastName;
+            tenant.Email = user.Email;
+            tenant.Phone = user.Phone;
+
+
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "UserId", tenant.UserId);
             return View(tenant);
         }
@@ -99,9 +130,18 @@ namespace PropertyRentals.Controllers
                 return NotFound();
             }
 
+            var userToUpdate = (from u in _context.Users
+                               where u.UserId == tenant.UserId
+                               select u).FirstOrDefault();
+            userToUpdate.FirstName = tenant.FirstName;
+            userToUpdate.LastName = tenant.LastName;
+            userToUpdate.Email = tenant.Email;
+            userToUpdate.Phone = tenant.Phone;
+
                 try
                 {
                     _context.Update(tenant);
+                    _context.Update(userToUpdate);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -137,6 +177,16 @@ namespace PropertyRentals.Controllers
                 return NotFound();
             }
 
+
+            var user = (from u in _context.Users
+                        where u.UserId == tenant.UserId
+                        select u).FirstOrDefault();
+
+            tenant.FirstName = user.FirstName;
+            tenant.LastName = user.LastName;
+            tenant.Email = user.Email;
+            tenant.Phone = user.Phone;
+
             return View(tenant);
         }
 
@@ -146,10 +196,15 @@ namespace PropertyRentals.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var tenant = await _context.Tenants.FindAsync(id);
+            
             if (tenant != null)
             {
+                var user = (from u in _context.Users
+                            where u.UserId == tenant.UserId
+                            select u).FirstOrDefault();
                 try {
                     _context.Tenants.Remove(tenant);
+                    _context.Users.Remove(user);
                 }
                 catch(Exception e)
                 {

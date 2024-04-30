@@ -5,6 +5,11 @@
 
 @{
     ViewData["Title"] = "Property Rentals";
+    int? managerId = null;
+    if (ViewData["ManagerId"] != null)
+    {
+        managerId = (int)ViewData["ManagerId"];
+    }
 }
 
 <!-- HERO SECTION -->
@@ -46,8 +51,7 @@
 }
 <!-- ------------------------------------- -->
 <!------ Future Appointments  ----------->
-
-@if (ViewBag.Appointments != null)
+@if (ViewBag.Appointments != null && ViewBag.Appointments.Count > 0)
 {
 <div class="container mt-4">
     <h2 class="mb-2">Appointments</h2>
@@ -105,7 +109,7 @@
 }
 
 <!------ Pending Events  ----------->
-@if(ViewBag.PendingEvents != null)
+@if (ViewBag.PendingEvents != null && ViewBag.PendingEvents.Count > 0)
 {
     <div class="container mt-4">
         <h2 class="mb-2">Pending events</h2>
@@ -168,11 +172,12 @@
         <div class="container px-4 px-lg-5 mt-5">
             
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+ 
                 @foreach (var item in Model)
                 {
                     @if (!User.Identity.IsAuthenticated && item.Apartment.StatusId == 1 ||
                    User.Identity.IsAuthenticated && (User.FindFirst(ClaimTypes.Role)?.Value == "Tenant" && item.Apartment.StatusId == 1||
-                   User.FindFirst(ClaimTypes.Role)?.Value == "Manager"||
+                   User.FindFirst(ClaimTypes.Role)?.Value == "Manager" && item.Property.ManagerId == managerId ||
                    User.FindFirst(ClaimTypes.Role)?.Value == "Owner"))
                     {
                        // if (User.FindFirst(ClaimTypes.Role)?.Value == "Tenant" && item.Apartment.StatusId == 1 || User.FindFirst(ClaimTypes.Role)?.Value == "Manager" || User.FindFirst(ClaimTypes.Role)?.Value == "Owner")

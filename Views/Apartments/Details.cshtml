@@ -532,38 +532,39 @@
                             
                         </tbody>
                     </table>
+
                     @if(ViewData["RentalApartment"] == "false" ){
-                    <h4>Create New Rental</h4>
-                    <hr />
+                        <h4>Create New Rental</h4>
+                        <hr />
 
-                    <div class="row">
-                        <div class="col-3">
-                            <form asp-controller="Rentals" asp-action="Create" method="post">
+                        <div class="row">
+                            <div class="col-3">
+                                <form asp-controller="Rentals" asp-action="Create" method="post">
                                    
-                                <label for="userList" class="form-label">Select Tenant:</label>
-                                <select name="TenantId" id="userList" class="form-select">
-                                    @foreach (var tenant in @ViewBag.AllTenants)
-                                    {
-                                        <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
-                                    }
-                                </select>
-                                <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
+                                    <label for="userList" class="form-label">Select Tenant:</label>
+                                    <select name="TenantId" id="userList" class="form-select">
+                                        @foreach (var tenant in @ViewBag.AllTenants)
+                                        {
+                                            <option value="@tenant.UserId">@tenant.UserId, @tenant.FirstName @tenant.LastName</option>
+                                        }
+                                    </select>
+                                    <input type="hidden" name="ApartmentId" value="@Model.ApartmentId" />
 
-                                <div class="form-group">
-                                    <label for="RentalDate" class="control-label">Rental Date</label>
-                                    <input type="date" name="RentalDate" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="EndContractDate" class="control-label">End Contract Date</label>
-                                    <input type="date" name="EndContractDate" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Create" class="btn btn-primary" />
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <label for="RentalDate" class="control-label">Rental Date</label>
+                                        <input type="date" name="RentalDate" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="EndContractDate" class="control-label">End Contract Date</label>
+                                        <input type="date" name="EndContractDate" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Create" class="btn btn-primary" />
+                                    </div>
+                                </form>
 
+                            </div>
                         </div>
-                    </div>
 
                     
                     
