@@ -12,7 +12,7 @@
     </p>
     <table class="table">
         <thead>
-            <tr>
+            <tr class="table-primary">
                 <th>
                     First Name
                 </th>
@@ -34,7 +34,7 @@
         <tbody>
             @foreach (var item in ViewBag.ManagersData)
             {
-                <tr>
+                <tr class="table-active">
                     <td>
                         @item.UserDetails.FirstName
                     </td>

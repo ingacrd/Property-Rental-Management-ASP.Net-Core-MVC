@@ -1,8 +1,14 @@
-﻿@model IEnumerable<PropertyRentals.Models.Property>
+﻿@using System.Security.Claims
+@model IEnumerable<PropertyRentals.Models.Property>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int? managerId = null;
+    if (ViewData["ManagerId"] != null)
+    {
+        managerId = (int)ViewData["ManagerId"];
+    }
 }
 
 <div class="container">
@@ -45,37 +51,42 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr class="table-active" >
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.State)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ZipCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Manager.ManagerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Owner.OwnerId)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.PropertyCode">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.PropertyCode">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.PropertyCode">Delete</a>
-                    </td>
-                </tr>
+                @if (User.FindFirst(ClaimTypes.Role)?.Value == "Manager" && item.ManagerId == managerId ||
+               User.FindFirst(ClaimTypes.Role)?.Value == "Owner")
+                {
+                    <tr class="table-active">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.State)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ZipCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Manager.ManagerId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Owner.OwnerId)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PropertyCode">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.PropertyCode">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.PropertyCode">Delete</a>
+                        </td>
+                    </tr>
+                }
+                
             }
         </tbody>
     </table>

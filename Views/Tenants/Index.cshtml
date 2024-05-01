@@ -12,7 +12,7 @@
     </p> *@
     <table class="table">
         <thead>
-            <tr>
+            <tr class="table-primary">
                 <th>
                     First Name
                 </th>
@@ -34,7 +34,7 @@
         <tbody>
             @foreach (var tenant in ViewBag.Tenants)
             {
-                <tr>
+                <tr class="table-active">
                     <td>
                         @tenant.User.FirstName
                     </td>
