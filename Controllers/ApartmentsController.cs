@@ -33,15 +33,18 @@ namespace PropertyRentals.Controllers
                        select u).FirstOrDefault();
 
 
-            if (claimUser.IsInRole("Tenant"))
+            if (claimUser.IsInRole("Manager"))
             {
-                var apartments = from t in _context.Tenants
-                                 join r in _context.Rentals on t.TenantId equals r.TenantId into rt
-                                 from rental in rt.DefaultIfEmpty()
-                                 join a in _context.Apartments on rental.ApartmentId equals a.ApartmentId into art
-                                 from apartment in art.DefaultIfEmpty()
-                                 where t.UserId == usr.UserId && rental != null
+                var apartments = from m in _context.Managers
+                                 where m.UserId == usr.UserId
+                                 join p in _context.Properties on m.ManagerId equals p.ManagerId into mp
+
+                                 from property in mp.DefaultIfEmpty()
+                                 join a in _context.Apartments on property.PropertyCode equals a.PropertyCode into mpa
+
+                                 from apartment in mpa.DefaultIfEmpty()
                                  select apartment;
+
                 return View(await apartments.ToListAsync());
 
             }

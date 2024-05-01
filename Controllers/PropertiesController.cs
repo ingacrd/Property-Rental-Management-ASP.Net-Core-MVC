@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,22 @@ namespace PropertyRentals.Controllers
         // GET: Properties
         public async Task<IActionResult> Index()
         {
+            // find the user
+            ClaimsPrincipal claimUser = HttpContext.User;
+            var nameIdentifierClaim = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+            string nameIdentifierValue = nameIdentifierClaim.Value;
+            if (claimUser.IsInRole("Manager"))
+            {
+                var manager = (from u in _context.Users
+                               join m in _context.Managers
+                               on u.UserId equals m.UserId
+                               where u.Username == nameIdentifierValue
+                               select m).FirstOrDefault();
+                ViewData["ManagerId"] = manager.ManagerId;
+            }
+                
+
+
             var propertyRentalDbContext = _context.Properties.Include(p => p.Manager).Include(p => p.Owner);
             return View(await propertyRentalDbContext.ToListAsync());
         }
