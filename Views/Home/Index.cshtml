@@ -165,6 +165,42 @@
 }
 
 
+<!---------- FILTER APARTMENTS ---------->
+
+<div class="container mt-3 filter">
+    <form asp-controller="Home" asp-action="Index" method="get">
+        <div class="inner-form">
+            <div class="row">
+                <div class="col-md-2 col-sm-6 input-field">
+                    <label for="numBedrooms">Bedrooms:</label>
+                    <input type="number" class="form-control" id="numBedrooms" name="numBedrooms">
+                </div>
+                <div class="col-md-3 col-sm-6 input-field">
+                    <label for="minRent">Min Rent:</label>
+                    <input type="number" class="form-control" id="minRent" name="minRent">
+                </div>
+                <div class="col-md-3 col-sm-6 input-field">
+                    <label for="maxRent">Max Rent:</label>
+                    <input type="number" class="form-control" id="maxRent" name="maxRent">
+                </div>
+                <div class="col-md-2 col-sm-6 input-field">
+                    <label for="numBathrooms">Bathrooms:</label>
+                    <input type="number" class="form-control" id="numBathrooms" name="numBathrooms">
+                </div>
+                <div class="col-md-1 col-sm-6 align-self-center text-end">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<!-- ------------------------------------- -->
+
 <!--APARTMENTS LIST -->
 
 <div class="container">
@@ -216,15 +252,15 @@
                                                 <div class="col">
                                                     <i class="fa-solid fa-bed"></i>
                                                 </div>
-                                                <div class="col">
+                                            <div class="col text-start">
                                                     <p>@Html.DisplayFor(modelItem => item.Apartment.Bedrooms) bedrooms</p>
                                                 </div>
                                             </div>
                                             <div class="row small-text">
-                                                <div class="col">
+                                            <div class="col ">
                                                     <i class="fa-solid fa-bath"></i>
                                                 </div>
-                                                <div class="col">
+                                            <div class="col text-start">
                                                     <p>@Html.DisplayFor(modelItem => item.Apartment.Bathrooms) bathrooms</p>
                                                 </div>
                                             </div>
@@ -232,7 +268,7 @@
                                                 <div class="col">
                                                     <i class="fa-solid fa-chart-area"></i>
                                                 </div>
-                                                <div class="col">
+                                            <div class="col text-start">
                                                     <p>@Html.DisplayFor(modelItem => item.Apartment.FloorArea) sqm</p>
                                                 </div>
                                             </div>
@@ -240,7 +276,7 @@
                                                 <div class="col">
                                                     <i class="fa-solid fa-square-parking"></i>
                                                 </div>
-                                                <div class="col">
+                                            <div class="col text-start">
                                                     <p>@Html.DisplayFor(modelItem => item.Apartment.ParkingSpots) parking spot</p>
                                                 </div>
                                             </div>
@@ -252,7 +288,14 @@
                                                     <p>@Html.DisplayFor(modelItem => item.Address)</p>
                                                 </div>
                                             </div>
-
+                                        <div class="row small-text">
+                                            <div class="col">
+                                                <i class="fa-solid fa-city"></i>
+                                            </div>
+                                            <div class="col text-start">
+                                                <p>@Html.DisplayFor(modelItem => item.Property.City), @Html.DisplayFor(modelItem => item.Property.State)</p>
+                                            </div>
+                                        </div>
                                         </div>
 
                                     </div>

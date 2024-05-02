@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PropertyRentals.bundle.scp.css"
     },
     {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\Prorentals.ico",
+      "PackagePath": "staticwebassets\\Prorentals.ico"
+    },
+    {
       "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\css\\access.css",
       "PackagePath": "staticwebassets\\css\\access.css"
     },
@@ -17,8 +21,12 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\icon.ico",
+      "PackagePath": "staticwebassets\\icon.ico"
+    },
+    {
+      "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\Prorentals1.png",
+      "PackagePath": "staticwebassets\\images\\Prorentals1.png"
     },
     {
       "Id": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\107fb861-0068-4a3a-a6fd-bd7aa0b390c2.jpg",
