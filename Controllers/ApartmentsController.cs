@@ -24,33 +24,32 @@ namespace PropertyRentals.Controllers
         // GET: Apartments
         public async Task<IActionResult> Index()
         {
-            // found the user
-            ClaimsPrincipal claimUser = HttpContext.User;
-            var nameIdentifierClaim = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
-            string nameIdentifierValue = nameIdentifierClaim.Value;
-            var usr = (from u in _context.Users
-                       where u.Username == nameIdentifierValue
-                       select u).FirstOrDefault();
-
-
-            if (claimUser.IsInRole("Manager"))
+            if (User.Identity.IsAuthenticated)
             {
-                var apartments = from m in _context.Managers
-                                 where m.UserId == usr.UserId
-                                 join p in _context.Properties on m.ManagerId equals p.ManagerId into mp
+                ClaimsPrincipal claimUser = HttpContext.User;
+                var nameIdentifierClaim = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+                string nameIdentifierValue = nameIdentifierClaim.Value;
+                var usr = (from u in _context.Users
+                           where u.Username == nameIdentifierValue
+                           select u).FirstOrDefault();
 
-                                 from property in mp.DefaultIfEmpty()
-                                 join a in _context.Apartments on property.PropertyCode equals a.PropertyCode into mpa
 
-                                 from apartment in mpa.DefaultIfEmpty()
-                                 select apartment;
+                if (claimUser.IsInRole("Manager"))
+                {
+                    var apartments = from m in _context.Managers
+                                     where m.UserId == usr.UserId
+                                     join p in _context.Properties on m.ManagerId equals p.ManagerId into mp
 
-                return View(await apartments.ToListAsync());
+                                     from property in mp.DefaultIfEmpty()
+                                     join a in _context.Apartments on property.PropertyCode equals a.PropertyCode into mpa
 
-            }
+                                     from apartment in mpa.DefaultIfEmpty()
+                                     select apartment;
 
-                
-            
+                    return View(await apartments.ToListAsync());
+
+                }
+            } 
 
             var propertyRentalDbContext = _context.Apartments
                 .Include(a => a.PropertyCodeNavigation).

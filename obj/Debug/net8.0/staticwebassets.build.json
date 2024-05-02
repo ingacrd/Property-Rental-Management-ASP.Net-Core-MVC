@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Kb7PrSHaYR4XnWDfosxaZzUqzn8SWZOJO4+oPMbxOdg=",
+  "Hash": "kpqLuFpHXXqRQBgAUH4ge2B1mYlob8eHaWPJv5s5WFQ=",
   "Source": "PropertyRentals",
   "BasePath": "_content/PropertyRentals",
   "Mode": "Default",
@@ -112,12 +112,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\favicon.ico",
+      "Identity": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\icon.ico",
       "SourceId": "PropertyRentals",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\",
       "BasePath": "_content/PropertyRentals",
-      "RelativePath": "favicon.ico",
+      "RelativePath": "icon.ico",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,7 +128,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot\\icon.ico"
     },
     {
       "Identity": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\apartments\\107fb861-0068-4a3a-a6fd-bd7aa0b390c2.jpg",
@@ -471,6 +471,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\dream_home.jpg"
+    },
+    {
+      "Identity": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\Prorentals1.png",
+      "SourceId": "PropertyRentals",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\",
+      "BasePath": "_content/PropertyRentals",
+      "RelativePath": "images/Prorentals1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Prorentals1.png"
     },
     {
       "Identity": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\images\\users\\1e999fe7-bc2a-4f39-af58-bce624b2a6a8.png",
@@ -1763,6 +1782,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\Prorentals.ico",
+      "SourceId": "PropertyRentals",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CAROLINA\\WebServerApp\\FinalProject\\PropertyRentals\\wwwroot\\",
+      "BasePath": "_content/PropertyRentals",
+      "RelativePath": "Prorentals.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Prorentals.ico"
     }
   ]
 }

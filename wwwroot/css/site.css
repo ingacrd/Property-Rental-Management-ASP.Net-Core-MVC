@@ -100,4 +100,34 @@ html {
 }
 
 /*====================    ==================*/
+.filter form {
+    width: 100%;
+    max-width: 1190px;
+}
+form .inner-form {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    color: white
+}
+
+.filter form .inner-form .input-field {
+    position: relative;
+    border-right: 1px solid #ddd;
+}
+2
+.filter form .inner-form .input-field2 {
+    position: relative;
+}
+
+.navbar-logo {
+    max-height: 50px;
+}
+
 

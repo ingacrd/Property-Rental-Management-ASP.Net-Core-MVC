@@ -28,7 +28,7 @@ namespace PropertyRentals.Controllers
 
 
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? numBedrooms = null, int? minRent = null, int? maxRent = null, int? numBathrooms = null)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -152,32 +152,77 @@ namespace PropertyRentals.Controllers
 
             //===============================  List of apartments
             //where a.StatusId == 1
+            //var propertyRentalDbContext = from a in _context.Apartments
+            //                              join p in _context.Photos
+            //                              on a.ApartmentId equals p.ApartmentId into apartmentPhotos
+            //                              from photo in apartmentPhotos.DefaultIfEmpty()
+
+            //                              join b in _context.Properties
+            //                              on a.PropertyCode equals b.PropertyCode into apartmentProperty
+            //                              from property in apartmentProperty.DefaultIfEmpty()
+            //                              group new { a, photo, property} by a into g
+            //                              select new ApartmentPhotoLinkViewModel 
+            //                               {
+            //                                  Apartment = g.Key,
+            //                                  PhotoLink = g.Select(p => p.photo.PhotoLink).FirstOrDefault(),
+            //                                  Address = g.Select(p => p.property.Address).FirstOrDefault(),
+            //                                  Property = g.Select(p => p.property).FirstOrDefault(),
+            //                              };
+
             var propertyRentalDbContext = from a in _context.Apartments
                                           join p in _context.Photos
                                           on a.ApartmentId equals p.ApartmentId into apartmentPhotos
                                           from photo in apartmentPhotos.DefaultIfEmpty()
-
                                           join b in _context.Properties
                                           on a.PropertyCode equals b.PropertyCode into apartmentProperty
                                           from property in apartmentProperty.DefaultIfEmpty()
-                                          group new { a, photo, property} by a into g
-                                          select new ApartmentPhotoLinkViewModel 
-                                           {
+                                          where (!numBedrooms.HasValue || a.Bedrooms == numBedrooms) &&
+                                                (!minRent.HasValue || a.Rent >= minRent) &&
+                                                (!maxRent.HasValue || a.Rent <= maxRent) &&
+                                                (!numBathrooms.HasValue || a.Bathrooms == numBathrooms)
+                                          group new { a, photo, property } by a into g
+                                          select new ApartmentPhotoLinkViewModel
+                                          {
                                               Apartment = g.Key,
                                               PhotoLink = g.Select(p => p.photo.PhotoLink).FirstOrDefault(),
                                               Address = g.Select(p => p.property.Address).FirstOrDefault(),
                                               Property = g.Select(p => p.property).FirstOrDefault(),
                                           };
-
             return View(await propertyRentalDbContext.ToListAsync());
 
         }
+ 
+        //public async Task<IActionResult> Filter(int? numBedrooms, int? minRent, int? maxRent, int? numBathrooms)
+        //{
+        //    var propertyRentalDbContext = from a in _context.Apartments
+        //                                  join p in _context.Photos
+        //                                  on a.ApartmentId equals p.ApartmentId into apartmentPhotos
+        //                                  from photo in apartmentPhotos.DefaultIfEmpty()
+        //                                  join b in _context.Properties
+        //                                  on a.PropertyCode equals b.PropertyCode into apartmentProperty
+        //                                  from property in apartmentProperty.DefaultIfEmpty()
+        //                                  where (!numBedrooms.HasValue || a.Bedrooms == numBedrooms) &&
+        //                                        (!minRent.HasValue || a.Rent >= minRent) &&
+        //                                        (!maxRent.HasValue || a.Rent <= maxRent) &&
+        //                                        (!numBathrooms.HasValue || a.Bathrooms == numBathrooms) 
+        //                                  group new { a, photo, property } by a into g
+        //                                  select new ApartmentPhotoLinkViewModel
+        //                                  {
+        //                                      Apartment = g.Key,
+        //                                      PhotoLink = g.Select(p => p.photo.PhotoLink).FirstOrDefault(),
+        //                                      Address = g.Select(p => p.property.Address).FirstOrDefault(),
+        //                                      Property = g.Select(p => p.property).FirstOrDefault(),
+        //                                  };
+        //    return View("Index", await propertyRentalDbContext.ToListAsync());
+        //    //return View(await propertyRentalDbContext.ToListAsync());
+        //}
+
         //public IActionResult Index()
         //{
         //    return View();
         //}
 
-        
+
 
         public IActionResult Privacy()
         {
